@@ -23,12 +23,17 @@ Todas as skills do plugin monstro estão sob o seu controle. **Nunca espere a pe
 | Termos do domínio, GLOSSARY.md, ADR | `domain-modeling` |
 | A pessoa quer aprender/entender um assunto | `teach` |
 | Contexto da conversa acima de ~70% ou trabalho vai continuar em outra sessão | `handoff` (e depois sugira `/compact` ou `/clear`) |
+| Começar um projeto ou funcionalidade nova: escrever o que vai ser feito antes de programar | `agent-skills` (spec → plan → build → test → review → ship; comece por spec-driven-development) |
+| Usar qualquer biblioteca/framework (Next.js, React, Remotion, Supabase etc.): conferir a documentação atual e da versão certa | MCP `context7` (consulte antes de escrever código com a API da biblioteca) |
+| Projeto grande ou desconhecido, muitas perguntas sobre como o código se liga | `graphify` (se já existir `graphify-out/`, consulte o grafo primeiro; para uma busca pontual, use grep) |
+| Criar tela, botão, card, tabela de preço, gráfico ou buscar logo de marca em SVG | `21st` (skill `21st-ui` e MCP do 21st) |
+| Pentest / caçar falhas de segurança de verdade no app **da própria pessoa** | `penetration-testing-with-strix`, `find-security-vulnerabilities-in-code`, depois `fix-security-vulnerabilities-with-strix`. Só em código/sistemas da pessoa ou com autorização escrita do dono. Gasta tokens da chave de IA dela: avise antes de rodar |
 | **Antes de todo commit, push ou deploy de código alterado na sessão** | `banca` (obrigatório; se REPROVADO, corrija os itens CRÍTICO/ALTO e rode a banca de novo antes de subir) |
 
 Regras:
 - Não use skill para pergunta simples que se responde direto.
 - Skills que gastam créditos ou dinheiro (Higgsfield, HeyGen, renders na nuvem): informe o custo antes, quando a skill disser como saber.
-- Skills que precisam de login ou chave (Higgsfield, HeyGen): se faltar, peça para a pessoa fazer o login/cadastrar a chave e continue o resto.
+- Skills que precisam de login ou chave (Higgsfield, HeyGen, 21st `API_KEY_21ST`, Strix `STRIX_LLM` + `LLM_API_KEY`): se faltar, peça para a pessoa fazer o login/cadastrar a chave e continue o resto.
 
 ## Instalar coisas novas
 

@@ -1,12 +1,32 @@
 {
   "name": "claudemonstro",
-  "owner": { "name": "FernandoLacava" },
-  "metadata": { "description": "O Claude monstro do Fernando: skills, regras de uso automático e medidor de contexto." },
+  "owner": {
+    "name": "FernandoLacava"
+  },
+  "metadata": {
+    "description": "O Claude monstro do Fernando: skills, regras de uso automático e medidor de contexto."
+  },
   "plugins": [
     {
       "name": "monstro",
       "source": "./plugins/monstro",
       "description": "Todas as skills (vídeo, código, produtividade), regras de uso automático e medidor de contexto."
+    },
+    {
+      "name": "agent-skills",
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      },
+      "description": "Addy Osmani: 24 skills de engenharia (spec, plan, build, test, review, ship)."
+    },
+    {
+      "name": "21st",
+      "source": {
+        "source": "github",
+        "repo": "21st-dev/magic-mcp"
+      },
+      "description": "21st.dev: mais de 10 mil componentes de interface (React + Tailwind) e logos SVG. Precisa da chave API_KEY_21ST."
     }
   ]
 }
