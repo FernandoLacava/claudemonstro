@@ -44,6 +44,8 @@ Tudo que a pessoa mandar instalar (skills, regras, hooks, ferramentas) vai para 
 
 ## Ligar o claudemonstro num projeto novo
 
+Nas sessões na nuvem quem instala o plugin é o Setup script do ambiente (`setup.sh` do repositório claudemonstro). O bloco abaixo serve para o Claude Code no computador e como reforço.
+
 Quando a pessoa pedir ("liga o claudemonstro aqui"), crie ou mescle no `.claude/settings.json` do projeto, faça commit e push:
 
 ```json
