@@ -1,0 +1,12 @@
+{
+  "name": "claudemonstro",
+  "owner": { "name": "FernandoLacava" },
+  "metadata": { "description": "O Claude monstro do Fernando: skills, regras de uso automático e medidor de contexto." },
+  "plugins": [
+    {
+      "name": "monstro",
+      "source": "./plugins/monstro",
+      "description": "Todas as skills (vídeo, código, produtividade), regras de uso automático e medidor de contexto."
+    }
+  ]
+}
