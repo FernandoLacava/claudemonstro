@@ -39,21 +39,58 @@ Regras:
 
 Tudo que a pessoa mandar instalar (skills, regras, hooks, ferramentas) vai para o repositório GitHub **FernandoLacava/claudemonstro**, nunca para o projeto em que se está trabalhando:
 - Skills: `plugins/monstro/skills/<nome>/SKILL.md`. Regras de uso automático: atualize a tabela em `plugins/monstro/RULES.md`. Hooks: `plugins/monstro/hooks/hooks.json`.
+- Skills novas entram sozinhas no `bootstrap.sh` (ele copia tudo de `plugins/monstro/skills/`); dependências de outros repositórios precisam ser adicionadas no `bootstrap.sh` e no `dependencies` do plugin.json.
 - Revise o conteúdo antes por segurança, suba a `version` em `plugins/monstro/.claude-plugin/plugin.json`, rode `claude plugin validate`, faça commit e push na `main`.
 - Se o repositório não estiver na sessão, adicione-o (add_repo FernandoLacava/claudemonstro com push) e clone.
 
 ## Ligar o claudemonstro num projeto novo
 
-Nas sessões na nuvem quem instala o plugin é o Setup script do ambiente (`setup.sh` do repositório claudemonstro). O bloco abaixo serve para o Claude Code no computador e como reforço.
+Quando a pessoa pedir ("liga o claudemonstro aqui"), ou ao começar a trabalhar num projeto que não tem isso, crie/mescle estes dois arquivos no projeto, faça commit e push. O hook SessionStart baixa este repositório e roda `bootstrap.sh`, que copia todas as skills para `~/.claude/skills` (carregam na hora, também na nuvem) e imprime estas regras. No computador, com o plugin instalado, o bootstrap não faz nada e o plugin assume.
 
-Quando a pessoa pedir ("liga o claudemonstro aqui"), crie ou mescle no `.claude/settings.json` do projeto, faça commit e push:
-
+`.claude/settings.json`:
 ```json
 {
-  "extraKnownMarketplaces": {
-    "claudemonstro": { "source": { "source": "github", "repo": "FernandoLacava/claudemonstro" } }
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "D=\"$HOME/.claude/claudemonstro-src\"; if [ -d \"$D/.git\" ]; then timeout 60 git -C \"$D\" pull -q --ff-only; else timeout 90 git clone -q --depth 1 https://github.com/FernandoLacava/claudemonstro \"$D\"; fi >/dev/null 2>&1; if [ -f \"$D/bootstrap.sh\" ]; then bash \"$D/bootstrap.sh\"; else echo \"AVISO PARA O CLAUDE: nao foi possivel baixar o Claude monstro (github.com/FernandoLacava/claudemonstro). Avise a pessoa na primeira resposta.\"; fi",
+            "timeout": 240
+          }
+        ]
+      }
+    ]
   },
-  "enabledPlugins": { "monstro@claudemonstro": true },
-  "statusLine": { "type": "command", "command": "node ~/.claude/claudemonstro-statusline.js", "padding": 0 }
+  "enableAllProjectMcpServers": true,
+  "statusLine": {
+    "type": "command",
+    "command": "node ~/.claude/claudemonstro-statusline.js",
+    "padding": 0
+  },
+  "extraKnownMarketplaces": {
+    "claudemonstro": {
+      "source": {
+        "source": "github",
+        "repo": "FernandoLacava/claudemonstro"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "monstro@claudemonstro": true
+  }
+}
+```
+
+`.mcp.json`:
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp?client=claude-code-plugin"
+    }
+  }
 }
 ```

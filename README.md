@@ -2,25 +2,11 @@
 
 O "Claude monstro" do Fernando: um plugin do Claude Code com todas as skills instaladas, as regras de quando usar cada uma sozinho e o medidor de contexto.
 
-## Sessões na nuvem (claude.ai/code): obrigatório
-
-A nuvem não instala sozinha os plugins declarados no projeto. Cole o conteúdo de [`setup.sh`](setup.sh) em **Setup script** do ambiente (nome do ambiente no topo da sessão → Edit). Vale para todos os projetos desse ambiente.
-
 ## Ligar num projeto
 
-No `.claude/settings.json` do projeto:
+Coloque no projeto o `.claude/settings.json` e o `.mcp.json` descritos em [`plugins/monstro/RULES.md`](plugins/monstro/RULES.md) (seção "Ligar o claudemonstro num projeto novo"). Ao abrir uma sessão (computador ou nuvem), o hook roda [`bootstrap.sh`](bootstrap.sh), que instala todas as skills e as regras na hora. Nada para configurar no ambiente.
 
-```json
-{
-  "extraKnownMarketplaces": {
-    "claudemonstro": { "source": { "source": "github", "repo": "FernandoLacava/claudemonstro" } }
-  },
-  "enabledPlugins": { "monstro@claudemonstro": true },
-  "statusLine": { "type": "command", "command": "node ~/.claude/claudemonstro-statusline.js", "padding": 0 }
-}
-```
-
-Ou no terminal: `/plugin marketplace add FernandoLacava/claudemonstro` e `/plugin install monstro@claudemonstro`.
+Alternativa para o ambiente na nuvem: colar [`setup.sh`](setup.sh) em Setup script (instala como plugin antes da sessão).
 
 ## O que tem
 
