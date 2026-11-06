@@ -43,6 +43,12 @@ Tudo que a pessoa mandar instalar (skills, regras, hooks, ferramentas) vai para 
 - Revise o conteúdo antes por segurança, suba a `version` em `plugins/monstro/.claude-plugin/plugin.json`, rode `claude plugin validate`, faça commit e push na `main`.
 - Se o repositório não estiver na sessão, adicione-o (add_repo FernandoLacava/claudemonstro com push) e clone.
 
+## Onde o Claude monstro está instalado
+
+- **Nuvem (claude.ai/code, app, celular): em todas as sessões, de qualquer projeto.** O Setup script do ambiente pessoal "Padrão" instala o plugin antes de cada sessão começar, e a rede dele libera mcp.context7.com, 21st.dev e strix.ai. Se a pessoa criar outro ambiente, coloque nele o mesmo script (`setup.sh` deste repositório) com update_environment/create_environment.
+- **Claude Code no computador da pessoa:** uma vez só, no terminal: `claude plugin marketplace add FernandoLacava/claudemonstro` e `claude plugin install monstro@claudemonstro --scope user`. Vale para todos os projetos daquele computador.
+- **Claude normal (claude.ai no chat):** não usa plugins do Claude Code; skills ali são enviadas em Configurações → Capacidades → Skills, uma por uma (arquivo .zip).
+
 ## Ligar o claudemonstro num projeto novo
 
 Quando a pessoa pedir ("liga o claudemonstro aqui"), ou ao começar a trabalhar num projeto que não tem isso, crie/mescle estes dois arquivos no projeto, faça commit e push. O hook SessionStart baixa este repositório e roda `bootstrap.sh`, que copia todas as skills para `~/.claude/skills` (carregam na hora, também na nuvem) e imprime estas regras. No computador, com o plugin instalado, o bootstrap não faz nada e o plugin assume.
