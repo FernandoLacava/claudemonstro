@@ -29,10 +29,16 @@ Todas as skills do plugin monstro estão sob o seu controle. **Nunca espere a pe
 | Criar tela, botão, card, tabela de preço, gráfico ou buscar logo de marca em SVG | `21st` (skill `21st-ui` e MCP do 21st) |
 | Mapa no app: estilo Waze, rotas e navegação passo a passo, trânsito, busca de endereço, localização, marcadores, mapa de calor, loja mais próxima | skills `mapbox-*` (comece por `mapbox-web-integration-patterns` para web; `mapbox-navigation-patterns` para rotas/trânsito/navegação; `mapbox-search-integration` para busca; `mapbox-token-security` sempre que mexer no token). Precisa de um token grátis da Mapbox (account.mapbox.com) |
 | Pentest / caçar falhas de segurança de verdade no app **da própria pessoa** | `penetration-testing-with-strix`, `find-security-vulnerabilities-in-code`, depois `fix-security-vulnerabilities-with-strix`. Só em código/sistemas da pessoa ou com autorização escrita do dono. Gasta tokens da chave de IA dela: avise antes de rodar |
+| **Antes de lançar/publicar em produção um app com usuários**, e ao criar ou mexer em cadastro, dados pessoais, cookies/analytics, e-mail de marketing, checkout/assinatura, página de vendas, depoimentos, rodapé, termos ou política de privacidade | `app-dentro-da-lei` (checklist LGPD/CDC de 24 itens; implementa o que faltar e lista o que a pessoa precisa decidir; lembre que não é consultoria jurídica) |
+| Auditoria de segurança completa do código (sem atacar o app rodando) | `security-audit` (Cloudflare; quem confirma a falha nunca é o mesmo agente que achou). Para atacar o app rodando, use o Strix |
+| Projeto novo ou "configura o Claude Code neste projeto": que hooks, skills, MCP ou agentes valem a pena | `claude-automation-recommender` (plugin claude-code-setup) |
+| Tarefa longa e bem definida que dá para verificar sozinho (testes passando, build verde) e a pessoa quer que eu vá até o fim sem parar | `/ralph-loop "pedido" --max-iterations 20 --completion-promise "PRONTO"`: **sempre** com limite de iterações; avise antes porque gasta bastante uso |
 | **Antes de todo commit, push ou deploy de código alterado na sessão** | `banca` (obrigatório; se REPROVADO, corrija os itens CRÍTICO/ALTO e rode a banca de novo antes de subir) |
 
 Regras:
 - Não use skill para pergunta simples que se responde direto.
+- O plugin `security-guidance` dá avisos automáticos de segurança ao editar e revisa sozinho ao commitar: trate os avisos dele como itens da banca.
+- O plugin `context-mode` filtra saídas grandes de ferramentas para economizar contexto; se ele bloquear ou redirecionar um comando, use as ferramentas `ctx_*` que ele indicar.
 - Skills que gastam créditos ou dinheiro (Higgsfield, HeyGen, renders na nuvem): informe o custo antes, quando a skill disser como saber.
 - Skills que precisam de login ou chave (Higgsfield, HeyGen, 21st `API_KEY_21ST`, Strix `STRIX_LLM` + `LLM_API_KEY`, Mapbox token): se faltar, peça para a pessoa fazer o login/cadastrar a chave e continue o resto.
 

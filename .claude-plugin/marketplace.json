@@ -35,6 +35,42 @@
         "repo": "mapbox/mapbox-agent-skills"
       },
       "description": "Mapbox oficial: 20 skills de mapas (rotas, navegação, trânsito, busca de endereço, estilos) e conexões Mapbox."
+    },
+    {
+      "name": "security-guidance",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
+        "path": "plugins/security-guidance"
+      },
+      "description": "Anthropic: avisos de segurança ao editar código e revisão de segurança automática ao commitar."
+    },
+    {
+      "name": "claude-code-setup",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
+        "path": "plugins/claude-code-setup"
+      },
+      "description": "Anthropic: analisa o projeto e recomenda automações do Claude Code (hooks, skills, MCP, agentes)."
+    },
+    {
+      "name": "ralph-loop",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/claude-plugins-official.git",
+        "path": "plugins/ralph-loop"
+      },
+      "description": "Anthropic: /ralph-loop repete a tarefa até concluir (use sempre com --max-iterations)."
+    },
+    {
+      "name": "context-mode",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/mksglu/context-mode.git",
+        "path": "plugins/claude-code"
+      },
+      "description": "context-mode: economiza contexto filtrando saídas grandes das ferramentas."
     }
   ]
 }
