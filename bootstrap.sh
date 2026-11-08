@@ -35,5 +35,5 @@ cp "$SRC/plugins/monstro/scripts/statusline.js" "$C/claudemonstro-statusline.js"
 cat "$SRC/plugins/monstro/RULES.md"
 echo
 echo "_(Claude monstro instalado nesta sessão pelo bootstrap: $ok skills em ~/.claude/skills.)_"
-[ "$ok" -lt 60 ] && echo "AVISO PARA O CLAUDE: o Claude monstro carregou só $ok skills (esperado 72). Avise a pessoa."
+[ "$ok" -lt 60 ] && echo "AVISO PARA O CLAUDE: o Claude monstro carregou só $ok skills (esperado 73). Avise a pessoa."
 exit 0
