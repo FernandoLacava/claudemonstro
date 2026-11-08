@@ -46,7 +46,7 @@
       "description": "Anthropic: avisos de segurança ao editar código e revisão de segurança automática ao commitar."
     },
     {
-      "name": "claude-code-setup",
+      "name": "setup-recommender",
       "source": {
         "source": "git-subdir",
         "url": "https://github.com/anthropics/claude-plugins-official.git",

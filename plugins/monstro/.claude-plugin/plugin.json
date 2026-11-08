@@ -1,6 +1,6 @@
 {
   "name": "monstro",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Todas as skills (vídeo, código, segurança, produtividade), Context7, regras de uso automático e medidor de contexto.",
   "author": {
     "name": "FernandoLacava"
@@ -10,7 +10,7 @@
     "21st",
     "mapbox",
     "security-guidance",
-    "claude-code-setup",
+    "setup-recommender",
     "ralph-loop",
     "context-mode"
   ]
