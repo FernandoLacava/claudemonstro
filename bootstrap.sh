@@ -14,9 +14,10 @@ fetch() { # repo destino
 }
 fetch addyosmani/agent-skills "$DEPS/agent-skills"
 fetch 21st-dev/magic-mcp "$DEPS/21st"
+fetch mapbox/mapbox-agent-skills "$DEPS/mapbox"
 
 ok=0
-for d in "$SRC/plugins/monstro/skills"/*/ "$DEPS/agent-skills/skills"/*/ "$DEPS/21st/skills"/*/; do
+for d in "$SRC/plugins/monstro/skills"/*/ "$DEPS/agent-skills/skills"/*/ "$DEPS/21st/skills"/*/ "$DEPS/mapbox/skills"/*/; do
   [ -f "$d/SKILL.md" ] || continue
   n=$(basename "$d"); rm -rf "$SK/$n"; cp -r "$d" "$SK/$n"; ok=$((ok+1))
 done
@@ -34,5 +35,5 @@ cp "$SRC/plugins/monstro/scripts/statusline.js" "$C/claudemonstro-statusline.js"
 cat "$SRC/plugins/monstro/RULES.md"
 echo
 echo "_(Claude monstro instalado nesta sessão pelo bootstrap: $ok skills em ~/.claude/skills.)_"
-[ "$ok" -lt 40 ] && echo "AVISO PARA O CLAUDE: o Claude monstro carregou só $ok skills (esperado 50). Avise a pessoa."
+[ "$ok" -lt 60 ] && echo "AVISO PARA O CLAUDE: o Claude monstro carregou só $ok skills (esperado 70). Avise a pessoa."
 exit 0

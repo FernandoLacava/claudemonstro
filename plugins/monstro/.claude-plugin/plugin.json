@@ -1,12 +1,13 @@
 {
   "name": "monstro",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Todas as skills (vídeo, código, segurança, produtividade), Context7, regras de uso automático e medidor de contexto.",
   "author": {
     "name": "FernandoLacava"
   },
   "dependencies": [
     "agent-skills",
-    "21st"
+    "21st",
+    "mapbox"
   ]
 }

@@ -27,6 +27,14 @@
         "repo": "21st-dev/magic-mcp"
       },
       "description": "21st.dev: mais de 10 mil componentes de interface (React + Tailwind) e logos SVG. Precisa da chave API_KEY_21ST."
+    },
+    {
+      "name": "mapbox",
+      "source": {
+        "source": "github",
+        "repo": "mapbox/mapbox-agent-skills"
+      },
+      "description": "Mapbox oficial: 20 skills de mapas (rotas, navegação, trânsito, busca de endereço, estilos) e conexões Mapbox."
     }
   ]
 }
